@@ -210,3 +210,13 @@ footer p,footer small{color:#c1d0c6!important}
 .toast{background:#102b27!important;border:1px solid #d7ad58!important}
 .account-menu{background:#fff!important;border:1px solid #dce5df!important}
 @media(max-width:560px){.topbar{background:#102b27!important}.hero{background:linear-gradient(135deg,#0c2923,#28634d)!important}}
+
+/* Admin catalogue sections: clear independent panels */
+.admin-panel{background:#fff;border:1px solid #dce5df;border-radius:18px;padding:22px;margin:18px 0 24px;box-shadow:0 8px 24px #102b270b}
+.admin-panel h2{font:800 22px Manrope,sans-serif;color:#102b27;margin:0 0 12px}
+.product-create-panel{border-top:4px solid #d7ad58}
+.category-panel{border-top:4px solid #17483b}
+.catalogue-panel{border-top:4px solid #9aa99e}
+.admin-panel .checkout-form{border:0;padding:0;background:transparent}
+.admin-panel .admin-order{margin-top:12px}
+@media(max-width:560px){.admin-panel{padding:16px;border-radius:15px}.admin-panel h2{font-size:19px}}
