@@ -3,7 +3,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPas
 import { getFirestore, collection, addDoc, getDocs, query, where, doc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
 
-const ADMIN_EMAILS = ["YOUR_ADMIN_EMAIL@example.com"];
+const ADMIN_EMAILS = ["sachink15780@gmail.com"];
 const SHEETS_WEB_APP_URL = "";
 const UPI_ID = "";
 const $ = s => document.querySelector(s);
