@@ -40,7 +40,7 @@ The Sheet contains customer contact and delivery details. Restrict access to the
 - Set the admin email in both `app.js` and `firestore.rules`.
 - Add your UPI ID in `app.js` before offering UPI. UPI orders remain **Pending** until you verify payment manually. No payment gateway is connected.
 - Add/edit products from the admin dashboard after signing in as the configured admin.
-- Admin dashboard shortcut: press **Ctrl + Alt + A** on a physical keyboard while signed in as the admin. On mobile, use a browser with a keyboard or add an admin shortcut later.
+- Admin dashboard: sign in with the configured admin email, then tap the account button in the top-right; it opens the admin dashboard for that email.
 
 ## Important limitations
 
