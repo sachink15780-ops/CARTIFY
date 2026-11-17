@@ -35,5 +35,21 @@ service cloud.firestore {
 
       allow update, delete: if isAdmin();
     }
+    match /reviews/{reviewId} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.productId is string
+        && request.resource.data.rating is int
+        && request.resource.data.rating >= 1
+        && request.resource.data.rating <= 5
+        && request.resource.data.comment is string
+        && request.resource.data.comment.size() <= 600
+        && request.resource.data.images is list
+        && request.resource.data.images.size() <= 2;
+      allow update, delete: if isAdmin()
+        || (signedIn() && resource.data.userId == request.auth.uid);
+    }
+
   }
 }
