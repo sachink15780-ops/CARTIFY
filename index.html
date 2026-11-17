@@ -39,8 +39,17 @@
         <label>House no. / Building Name *<input name="house" required autocomplete="address-line1" placeholder="Enter house number / building name"></label>
         <label>Road Name / Area / Colony *<input name="area" required autocomplete="address-line2" placeholder="Enter road, area, village/city, post office name"></label>
         <button type="button" class="outline-btn full" id="contactBack">← Back</button>
+        <button type="button" class="primary full" id="addressContinue">Continue to bill</button>
       </div>
-      <h3>Payment method</h3><label class="radio-line"><input type="radio" name="payment" value="COD" checked> Cash on Delivery</label><label class="radio-line"><input type="radio" name="payment" value="UPI"> UPI (manual confirmation)</label><button class="primary full" type="submit">Place order</button><p id="checkoutMessage" class="notice"></p></form><aside id="checkoutTotal" class="checkout-total"></aside></div></section>
+      <div id="paymentStep" class="hidden">
+        <h3>Payment method</h3>
+        <label class="radio-line"><input type="radio" name="payment" value="COD" checked> Cash on Delivery</label>
+        <label class="radio-line"><input type="radio" name="payment" value="UPI"> UPI (manual confirmation)</label>
+        <button type="button" class="outline-btn full" id="paymentBack">← Back to address</button>
+        <button class="primary full" type="submit">Continue to payment</button>
+        <p id="checkoutMessage" class="notice"></p>
+      </div>
+      </form><aside id="checkoutTotal" class="checkout-total"></aside></div></section>
     <section id="adminView" class="hidden page-section"><div class="admin-heading"><div><div class="eyebrow">STORE MANAGEMENT</div><h1>Admin dashboard</h1></div><div class="admin-head-actions"><button class="primary" data-admin="products">Products / Catalogue</button><button id="adminLogout" class="outline-btn">Sign out</button></div></div><div id="adminStats" class="stats"></div><div class="admin-tabs"><button class="tab active" data-admin="pending">Pending Approval</button><button class="tab" data-admin="approved">Approved</button><button class="tab" data-admin="rejected">Rejected</button><button class="tab" data-admin="delivered">Delivered</button><button class="tab" data-admin="products">Products</button><button class="tab" data-admin="earnings">Earnings Dashboard</button></div><div id="adminContent"></div></section>
   </main>
   <footer><a class="brand" href="#"><span class="brand-mark">C</span>CARTIFY</a><p>Everyday shopping, made easier.</p><small>© <span id="year"></span> CARTIFY. Prices and availability may change.</small></footer>
@@ -48,5 +57,5 @@
   <div id="cartifyModal" class="cartify-modal" role="dialog" aria-modal="true" aria-labelledby="cartifyModalTitle"><div class="cartify-modal-card"><div id="cartifyModalIcon" class="cartify-modal-icon">✓</div><h2 id="cartifyModalTitle">Order placed!</h2><p id="cartifyModalMessage"></p><div class="cartify-modal-actions"><button id="cartifyModalPrimary" class="primary full" type="button">Continue</button><button id="cartifyModalSecondary" class="outline-btn full hidden" type="button">Cancel</button></div></div></div>
   <div id="addressMapModal" class="address-map-modal" role="dialog" aria-modal="true" aria-label="Choose delivery location"><div class="address-map-card"><div class="address-map-head"><div><strong>Choose delivery location</strong><p>Map par ghar search karein, pin set karein aur confirm karein.</p></div><button type="button" id="mapCloseBtn" aria-label="Close map">×</button></div><div class="address-map-search"><input id="mapSearchInput" placeholder="Search home, area or landmark"><button type="button" id="mapSearchBtn">Search</button></div><div class="address-map-actions"><button type="button" id="mapUseGps">◎ Use current location</button><span>Tap map or drag pin to select</span></div><div id="addressMap" aria-label="Interactive delivery location map"></div><p id="mapSelectedAddress" class="notice">Map par apna ghar select karein.</p><button type="button" id="mapConfirmLocation" class="primary full">Confirm Location</button></div></div>
   <div id="toast" class="toast" role="status"></div>
-  <script type="module" src="app.js?v=cartify-contact-address-v56"></script>
+  <script type="module" src="app.js?v=cartify-contact-address-v57"></script>
 </body></html>
