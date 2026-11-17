@@ -6,3 +6,6 @@
 /* Customer account dropdown */
 .account-wrap{position:relative}.account-menu{position:absolute;right:0;top:calc(100% + 12px);width:235px;background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:0 16px 45px #10182720;padding:8px;z-index:20}.account-menu-user{padding:12px 11px 14px;border-bottom:1px solid var(--line);margin-bottom:5px;display:flex;flex-direction:column;gap:4px;overflow:hidden}.account-menu-user strong{font-size:14px}.account-menu-user small{font-size:11px;color:var(--muted);overflow-wrap:anywhere}.account-menu button,.account-menu a{display:block;width:100%;border:0;background:#fff;color:var(--ink);text-align:left;text-decoration:none;padding:11px;border-radius:8px;font-size:13px;font-weight:600}.account-menu button:hover,.account-menu a:hover{background:var(--paper)}.account-menu .logout-menu{color:#c0392b;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:5px;padding-top:13px}
 @media(max-width:560px){.account-menu{right:0;width:220px;top:calc(100% + 9px)}}
+
+/* Native account dropdown trigger */
+.account-wrap{display:block}.account-wrap>summary{list-style:none;cursor:pointer}.account-wrap>summary::-webkit-details-marker{display:none}.account-wrap[open]>.account-menu{display:block!important}
