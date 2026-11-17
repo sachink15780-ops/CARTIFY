@@ -33,7 +33,24 @@ service cloud.firestore {
       allow read: if signedIn()
         && (resource.data.userId == request.auth.uid || isAdmin());
 
-      allow update, delete: if isAdmin();
+      allow update: if isAdmin()
+        || (signedIn()
+          && resource.data.userId == request.auth.uid
+          && resource.data.paymentMethod == 'COD'
+          && resource.data.status == 'Pending Approval'
+          && request.resource.data.paymentStatus == 'Delivery fee submitted'
+          && request.resource.data.deliveryFeePaymentStatus == 'Submitted'
+          && request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['paymentStatus', 'deliveryFeePaymentStatus', 'advanceSubmittedAt']))
+        || (signedIn()
+          && resource.data.userId == request.auth.uid
+          && resource.data.status == 'Pending Approval'
+          && request.resource.data.status == 'Cancelled'
+          && request.resource.data.approvalStatus == 'Cancelled'
+          && request.resource.data.cancelReason == 'Customer returned without confirming UPI payment'
+          && request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['status', 'approvalStatus', 'cancelledAt', 'cancelReason']));
+      allow delete: if isAdmin();
     }
     match /reviews/{reviewId} {
       allow read: if signedIn();
