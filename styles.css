@@ -270,3 +270,14 @@ body.modal-open{overflow:hidden}
 .detail-photo-slide img{display:block;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
 .detail-photo-caption{display:flex;justify-content:space-between;gap:12px;padding:9px 3px;color:#66736b;font-size:13px}
 @media(max-width:680px){.detail-photo-strip{height:330px;border-radius:14px}.detail-photo-caption{font-size:12px}}
+
+/* Customer-selectable delivery map */
+.address-map-modal{position:fixed;inset:0;z-index:11000;background:rgba(5,15,12,.72);display:none;align-items:center;justify-content:center;padding:12px}
+.address-map-modal.show{display:flex}
+.address-map-card{width:min(100%,680px);max-height:94vh;overflow:auto;background:#fff;border-radius:20px;padding:16px;box-shadow:0 24px 80px #0006}
+.address-map-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.address-map-head strong{font-size:20px;color:#102b27}.address-map-head p{font-size:13px;color:#66736b;margin:5px 0 12px}.address-map-head>button{border:0;border-radius:50%;width:38px;height:38px;font-size:25px;background:#edf2ee;color:#102b27}
+.address-map-search{display:flex;gap:8px}.address-map-search input{flex:1;min-width:0;border:1px solid #ccd8cf;border-radius:10px;padding:11px}.address-map-search button,.address-map-actions button{border:0;border-radius:10px;padding:10px 13px;background:#17483b;color:#fff;font-weight:700}
+.address-map-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:10px 0;color:#66736b;font-size:12px}.address-map-actions button{background:#e8efe9;color:#17483b}
+#addressMap{height:min(48vh,390px);min-height:270px;border-radius:13px;overflow:hidden;z-index:0}
+.address-map-card>.notice{font-size:12px;line-height:1.5;margin:10px 0}
+@media(max-width:560px){.address-map-modal{padding:0}.address-map-card{width:100%;height:100%;max-height:100vh;border-radius:0;padding:14px}.address-map-actions{align-items:flex-start;flex-direction:column}#addressMap{height:48vh}}
