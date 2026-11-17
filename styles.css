@@ -19,3 +19,108 @@
 .product-thumbs{display:flex;gap:6px;padding:8px 12px 0;overflow-x:auto}.product-thumbs img{width:42px;height:42px;object-fit:cover;border:1px solid var(--line);border-radius:6px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.product-actions .add-btn{margin-top:0}.buy-btn{border:0;background:var(--ink);color:#fff;border-radius:8px;padding:10px;font-weight:800}.buy-btn:hover{background:#29374d}.admin-tabs{overflow-x:auto;gap:16px}.admin-tabs .tab{white-space:nowrap}
 
 .admin-head-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.table-scroll{overflow-x:auto;margin:12px 0 28px}.earnings-table{width:100%;border-collapse:collapse;min-width:520px}.earnings-table th,.earnings-table td{text-align:left;padding:12px;border-bottom:1px solid var(--line);white-space:nowrap}.earnings-table th{background:var(--paper)}.earnings-current{margin:18px 0 30px}.earnings-current h3{margin-bottom:14px}
+
+
+/* CARTIFY premium refresh — warm ivory, midnight navy and champagne */
+:root{
+  --ink:#172238;
+  --muted:#737d8e;
+  --paper:#f5f3ef;
+  --line:#e9e5dd;
+  --accent:#d7ad68;
+  --green:#247a61;
+}
+html{scroll-behavior:smooth}
+body{background:#fbfaf8;color:var(--ink);font-family:'DM Sans',sans-serif}
+.topbar{
+  height:78px;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);
+  border-bottom:1px solid #eae6df;box-shadow:0 5px 24px #17223808
+}
+.brand{letter-spacing:1.7px;font-size:20px}
+.brand-mark{background:linear-gradient(145deg,#24334d,#111a2b);color:#e8c58d;border-radius:11px;box-shadow:0 5px 14px #17223825}
+.nav-link{padding:10px 2px;transition:color .2s}
+.nav-link:hover{color:#b38343}
+.icon-btn b{background:#e9d4b1;color:#34291b}
+.account-btn,.outline-btn{border-color:#e6dfd4;border-radius:999px;padding:11px 18px}
+.hero{
+  position:relative;margin:30px auto 76px;max-width:1280px;min-height:430px;
+  background:radial-gradient(circle at 78% 45%,#34435c 0,#202d43 32%,#141e31 72%);
+  border:1px solid #34415a;border-radius:28px;padding:62px 7%;
+  box-shadow:0 24px 60px #17223820
+}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(105deg,#ffffff08,transparent 52%,#d8b5770b)}
+.hero>div:first-child{position:relative;z-index:1}
+.hero .eyebrow{color:#dfbd85}
+.hero h1{letter-spacing:-2px;font-size:clamp(42px,5.5vw,68px)}
+.hero h1 span,.auth-card h1 span{color:#e2bd80}
+.hero p{font-size:16px;color:#d0d5de;max-width:390px;line-height:1.7}
+.primary{background:linear-gradient(135deg,#e7c994,#c99c5c);color:#1d2635;border-radius:999px;padding:14px 24px;box-shadow:0 8px 20px #c99c5c28;transition:transform .2s,box-shadow .2s}
+.primary:hover{filter:none;transform:translateY(-2px);box-shadow:0 12px 25px #c99c5c40}
+.hero-art{z-index:1}
+.hero-orb{background:radial-gradient(circle at 35% 30%,#f4dfb8,#d4ad70 58%,#9e713d);box-shadow:0 20px 60px #0005}
+.hero-box{color:#172238;text-shadow:5px 7px 0 #ffffff30}
+.hero-tag{background:#f7eddd;color:#28334a;box-shadow:0 12px 28px #0003}
+.section-head{max-width:1280px;margin-bottom:24px}
+.section-head h2{font-size:30px;letter-spacing:-.8px}
+.section-head .eyebrow,.page-section>.eyebrow{color:#aa8048}
+.categories{max-width:1280px;margin-bottom:38px}
+.category{background:#fffdf9;border-color:#e8e1d6;padding:11px 20px;transition:all .2s}
+.category:hover{border-color:#caa66f;color:#8b6535}
+.category.active{background:#1c2940;border-color:#1c2940;color:#f1d5a5;box-shadow:0 6px 16px #1722381d}
+.product-grid{max-width:1280px;gap:24px}
+.product-card{border:1px solid #ece7df;border-radius:18px;background:#fff;box-shadow:0 5px 20px #17223808;transition:transform .25s,box-shadow .25s,border-color .25s}
+.product-card:hover{transform:translateY(-5px);border-color:#dfc79f;box-shadow:0 18px 38px #17223812}
+.product-image{background:#f1eee8}
+.product-image img{transition:transform .45s}
+.product-card:hover .product-image img{transform:scale(1.06)}
+.product-info{padding:17px}
+.product-category{color:#a77a3f;letter-spacing:1.3px}
+.product-info h3{font-size:15px;line-height:1.45;color:#202c41}
+.price{color:#172238;font-size:19px}
+.add-btn{border-color:#d9d3c9;border-radius:999px;padding:11px;background:#fffdfa;transition:all .2s}
+.add-btn:hover{background:#1c2940;color:#f2d8aa;border-color:#1c2940}
+.buy-btn{border-radius:999px;background:#1c2940;color:#f2d8aa}
+.buy-btn:hover{background:#2b3a55}
+.search{border-color:#e5dfd5;border-radius:999px;background:#fff;padding:13px 18px}
+.search:focus{outline:2px solid #e5c994;border-color:transparent}
+.auth-wrap{background:radial-gradient(circle at 15% 15%,#f1e7d7,transparent 35%),#f8f7f4}
+.auth-card{border:1px solid #eee6da;border-radius:24px;box-shadow:0 24px 70px #17223812;padding:40px}
+.auth-card .eyebrow{color:#a77a3f}
+.auth-card h1{letter-spacing:-1.4px}
+.auth-tabs{border-color:#eee8df}
+.tab.active{border-color:#cda66c;color:#1c2940}
+label{color:#3c4656}
+label input,label select{border-color:#e5dfd5;border-radius:11px;background:#fffdfa;padding:14px}
+label input:focus,label select:focus{border-color:#caa66f;box-shadow:0 0 0 3px #d7ad6820}
+.google-btn{border-radius:999px;border-color:#e6dfd4}
+.page-section{max-width:1160px}
+.page-section h1{letter-spacing:-1.3px}
+.cart-summary,.checkout-total,.stat{background:#f5f2ec;border:1px solid #eee7dc;border-radius:16px}
+.checkout-form{border-color:#ece6dc;border-radius:18px;background:#fff}
+.admin-order{border-color:#e9e4db;border-radius:16px;background:#fff}
+.admin-tabs{border-color:#e9e4db}
+.admin-tabs .tab.active{color:#1c2940;border-color:#cda66c}
+.stats{gap:18px}
+.stat{box-shadow:0 5px 18px #17223808}
+.stat strong{color:#1b2940}
+.account-menu{border-color:#e9e2d7;border-radius:16px;box-shadow:0 20px 50px #17223820}
+.account-menu button:hover,.account-menu a:hover{background:#f6f2eb}
+.toast{background:#1c2940;border:1px solid #3b4a63;box-shadow:0 12px 35px #17223830;border-radius:999px}
+footer{background:#f7f5f1;border-color:#eae5dc}
+footer .brand{color:#1b2940}
+@media(max-width:850px){
+ .hero{margin:20px 14px 52px;min-height:360px;border-radius:22px}
+ .product-grid{gap:16px}
+}
+@media(max-width:560px){
+ .topbar{height:66px}
+ .hero{padding:34px 6%;min-height:300px}
+ .hero h1{font-size:37px;letter-spacing:-1.2px}
+ .hero p{font-size:13px;max-width:210px}
+ .section-head h2{font-size:23px}
+ .product-card{border-radius:14px}
+ .product-image{height:175px}
+ .product-info{padding:12px}
+ .auth-card{padding:27px 22px;border-radius:20px}
+ .page-section{margin:32px auto}
+}
