@@ -284,3 +284,5 @@ body.modal-open{overflow:hidden}
 
 /* Embedded map picker layout */
 .address-map-card{display:flex;flex-direction:column;gap:9px}.address-map-search button{white-space:nowrap}.address-map-actions{margin:0;flex-direction:row!important;align-items:center!important}#addressMap{height:min(55vh,480px);min-height:300px;width:100%;border:1px solid #dce5df;border-radius:14px;overflow:hidden;z-index:1}.address-map-card>.notice{margin:0}.address-map-card>#mapConfirmLocation{min-height:48px}@media(max-width:560px){#addressMap{height:52vh;min-height:300px}.address-map-card{gap:10px}}
+
+.phone-input{display:flex;align-items:center;margin-top:7px;border:1px solid #dfe3ea;border-radius:8px;overflow:hidden;background:#fff}.phone-input span{padding:0 13px;color:#4b5667;font-weight:800;border-right:1px solid #e5e8ee}.phone-input input{border:0!important;margin:0!important;border-radius:0!important;min-width:0;flex:1}.phone-input:focus-within{border-color:#c18a28}
