@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101827"><meta name="description" content="CARTIFY — Everyday shopping made simple.">
-  <title>CARTIFY — Shop Smart</title><link rel="stylesheet" href="styles.css?v=account-menu-2">
+  <title>CARTIFY — Shop Smart</title><link rel="stylesheet" href="styles.css?v=account-native-3">
 </head>
 <body>
-  <header class="topbar"><a class="brand" href="#" aria-label="CARTIFY home"><span class="brand-mark">C</span>CARTIFY</a><nav><button class="nav-link" data-view="shop">Shop</button><button class="nav-link" data-view="orders">My orders</button></nav><div class="top-actions"><button id="cartBtn" class="icon-btn" aria-label="Cart">Bag <b id="cartCount">0</b></button><div class="account-wrap"><button id="accountBtn" class="account-btn" aria-haspopup="true" aria-expanded="false">Sign in</button><div id="accountMenu" class="account-menu hidden"><div class="account-menu-user"><strong id="menuUserName">Your account</strong><small id="menuUserEmail"></small></div><button type="button" data-menu="profile">My profile</button><button type="button" data-menu="orders">My orders</button><button type="button" data-menu="shop">Continue shopping</button><button type="button" data-menu="refer">Refer &amp; share CARTIFY</button><a href="mailto:support@cartify.in?subject=CARTIFY%20Support">Help &amp; support</a><button type="button" class="logout-menu" id="logoutBtn">Log out</button></div></div></div></header>
+  <header class="topbar"><a class="brand" href="#" aria-label="CARTIFY home"><span class="brand-mark">C</span>CARTIFY</a><nav><button class="nav-link" data-view="shop">Shop</button><button class="nav-link" data-view="orders">My orders</button></nav><div class="top-actions"><button id="cartBtn" class="icon-btn" aria-label="Cart">Bag <b id="cartCount">0</b></button><details class="account-wrap" id="accountDetails"><summary id="accountBtn" class="account-btn">Sign in</summary><div id="accountMenu" class="account-menu"><div class="account-menu-user"><strong id="menuUserName">Your account</strong><small id="menuUserEmail"></small></div><button type="button" data-menu="profile">My profile</button><button type="button" data-menu="orders">My orders</button><button type="button" data-menu="shop">Continue shopping</button><button type="button" data-menu="refer">Refer &amp; share CARTIFY</button><a href="mailto:support@cartify.in?subject=CARTIFY%20Support">Help &amp; support</a><button type="button" class="logout-menu" id="logoutBtn">Log out</button></div></div></div></header>
   <main>
     <section id="authView" class="auth-wrap">
       <div class="auth-card"><div class="eyebrow">WELCOME TO CARTIFY</div><h1>Shopping made <span>simple.</span></h1><p class="muted">Sign in or create your account to continue shopping.</p>
@@ -30,5 +30,5 @@
   </main>
   <footer><a class="brand" href="#"><span class="brand-mark">C</span>CARTIFY</a><p>Everyday shopping, made easier.</p><small>© <span id="year"></span> CARTIFY. Prices and availability may change.</small></footer>
   <div id="toast" class="toast" role="status"></div>
-  <script type="module" src="app.js?v=account-menu-2"></script>
+  <script type="module" src="app.js?v=account-native-3"></script>
 </body></html>
