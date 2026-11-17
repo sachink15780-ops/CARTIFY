@@ -17,3 +17,5 @@
 
 /* Multiple product images and Buy Now */
 .product-thumbs{display:flex;gap:6px;padding:8px 12px 0;overflow-x:auto}.product-thumbs img{width:42px;height:42px;object-fit:cover;border:1px solid var(--line);border-radius:6px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.product-actions .add-btn{margin-top:0}.buy-btn{border:0;background:var(--ink);color:#fff;border-radius:8px;padding:10px;font-weight:800}.buy-btn:hover{background:#29374d}.admin-tabs{overflow-x:auto;gap:16px}.admin-tabs .tab{white-space:nowrap}
+
+.admin-head-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.table-scroll{overflow-x:auto;margin:12px 0 28px}.earnings-table{width:100%;border-collapse:collapse;min-width:520px}.earnings-table th,.earnings-table td{text-align:left;padding:12px;border-bottom:1px solid var(--line);white-space:nowrap}.earnings-table th{background:var(--paper)}.earnings-current{margin:18px 0 30px}.earnings-current h3{margin-bottom:14px}
