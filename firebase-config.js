@@ -1,10 +1,10 @@
-// Replace these values with your Firebase project's Web App config.
-// Never put Firebase Admin SDK credentials or service-account JSON in this file.
+// CARTIFY Firebase web app configuration.
+// This client config is intended for browser use. Protect data with Firebase Security Rules.
 export const firebaseConfig = {
-  apiKey: "PASTE_API_KEY",
-  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_PROJECT_ID.appspot.com",
-  messagingSenderId: "PASTE_MESSAGING_SENDER_ID",
-  appId: "PASTE_APP_ID"
+  apiKey: "AIzaSyB6EjMQslQq5qLEiqxMeioeYUxJVoG9_UY",
+  authDomain: "cartify-467e7.firebaseapp.com",
+  projectId: "cartify-467e7",
+  storageBucket: "cartify-467e7.firebasestorage.app",
+  messagingSenderId: "259707872001",
+  appId: "1:259707872001:web:61a00b3aa42492d94f3100"
 };
