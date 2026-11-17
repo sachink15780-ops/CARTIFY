@@ -5,7 +5,7 @@ import { firebaseConfig } from "./firebase-config.js";
 
 const ADMIN_EMAILS = ["sachink15780@gmail.com"];
 const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyyVs2Xn8Byma2oT7ePYbID_QQ0I_pbkTCp5hc5ePvF6AExyTA2AbR6JIy1HLxk31AG/exec";
-const UPI_ID = "ADD_YOUR_UPI_ID";
+const UPI_ID = "thakursachin@ptyes";
 const UPI_PAYEE_NAME = "CARTIFY";
 function makeUpiPaymentUrl(amount, orderId){const params=new URLSearchParams({pa:UPI_ID,pn:UPI_PAYEE_NAME,am:Number(amount).toFixed(2),cu:"INR",tn:"CARTIFY Order "+orderId.slice(0,12)});return "upi://pay?"+params.toString();}
 const $ = s => document.querySelector(s);
