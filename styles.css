@@ -168,3 +168,45 @@ body{background:#fbfaf7;color:#17243a}
 footer{background:#f7f5ef;border-top-color:#e8e1d5}
 .toast{background:#1b2a42;border:1px solid #3c4b62;box-shadow:0 12px 30px #17243a30}
 @media(max-width:560px){.hero{border-radius:20px}.product-card{box-shadow:0 5px 16px rgba(28,39,56,.055)}}
+
+
+/* PREMIUM V2 — unmistakable forest/obsidian and antique-gold palette */
+:root{--ink:#102b27;--muted:#687b76;--paper:#f3f5f1;--line:#dce5df;--accent:#d7ad58;--green:#176b52}
+html,body{background:#f3f5f1!important;color:#102b27!important}
+.topbar{background:#102b27!important;border-bottom:1px solid #29443d!important;box-shadow:0 8px 28px #0b211c25!important}
+.topbar .brand,.topbar .nav-link,.topbar .icon-btn{color:#f7f4eb!important}
+.topbar .brand-mark{background:#d7ad58!important;color:#102b27!important;box-shadow:none!important}
+.topbar .account-btn{background:#f7f4eb!important;color:#102b27!important;border:0!important}
+.topbar .icon-btn b{background:#d7ad58!important;color:#102b27!important}
+.hero{background:linear-gradient(118deg,#0c2923 0%,#17483b 55%,#28634d 100%)!important;border:0!important;box-shadow:0 24px 55px #102b2730!important}
+.hero .eyebrow{color:#e3c47e!important}
+.hero h1{color:#fff!important}.hero h1 span{color:#e3c47e!important}
+.hero p{color:#e1eae4!important}
+.hero-orb{background:linear-gradient(145deg,#f2d99c,#d1a64f 65%,#9d762f)!important}
+.hero-tag{background:#f8efd9!important;color:#102b27!important}
+.primary{background:#d7ad58!important;color:#102b27!important;border:1px solid #e8c879!important;box-shadow:0 8px 22px #8d692d35!important}
+.eyebrow,.product-category{color:#9b7434!important}
+.section-head h2,.page-section h1{color:#102b27!important}
+.category{background:#fff!important;border:1px solid #dce5df!important;color:#425a51!important}
+.category.active{background:#17483b!important;color:#f4d990!important;border-color:#17483b!important}
+.product-card{background:#fff!important;border:1px solid #dce5df!important;box-shadow:0 8px 24px #102b2710!important}
+.product-image{background:#e9eee9!important}
+.add-btn{background:#fff!important;border:1px solid #17483b!important;color:#17483b!important}
+.add-btn:hover,.buy-btn{background:#17483b!important;color:#f4d990!important}
+.auth-wrap{background:radial-gradient(circle at 15% 12%,#dce9df 0,transparent 38%),#f3f5f1!important}
+.auth-card{background:#fff!important;border:1px solid #dce5df!important;box-shadow:0 24px 65px #102b2718!important}
+.auth-card h1{color:#102b27!important}.auth-card h1 span{color:#b4873d!important}
+.tab.active{color:#17483b!important;border-bottom:3px solid #d7ad58!important}
+label input,label select,.search{background:#fff!important;border:1px solid #d2ded6!important}
+label input:focus,label select:focus,.search:focus{border-color:#b4873d!important;box-shadow:0 0 0 3px #d7ad5825!important}
+.cart-summary,.checkout-total,.stat{background:#e8efe9!important;border:1px solid #d3e0d6!important}
+.checkout-form,.admin-order{background:#fff!important;border:1px solid #dce5df!important}
+.admin-tabs{border-bottom:1px solid #d2ded6!important}
+.admin-tabs .tab.active{color:#17483b!important;border-color:#d7ad58!important}
+.earnings-table th{background:#e8efe9!important}
+footer{background:#102b27!important;color:#dce8df!important;border:0!important}
+footer .brand{color:#fff!important}footer .brand-mark{background:#d7ad58!important;color:#102b27!important}
+footer p,footer small{color:#c1d0c6!important}
+.toast{background:#102b27!important;border:1px solid #d7ad58!important}
+.account-menu{background:#fff!important;border:1px solid #dce5df!important}
+@media(max-width:560px){.topbar{background:#102b27!important}.hero{background:linear-gradient(135deg,#0c2923,#28634d)!important}}
