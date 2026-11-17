@@ -281,3 +281,6 @@ body.modal-open{overflow:hidden}
 #addressMap{height:min(48vh,390px);min-height:270px;border-radius:13px;overflow:hidden;z-index:0}
 .address-map-card>.notice{font-size:12px;line-height:1.5;margin:10px 0}
 @media(max-width:560px){.address-map-modal{padding:0}.address-map-card{width:100%;height:100%;max-height:100vh;border-radius:0;padding:14px}.address-map-actions{align-items:flex-start;flex-direction:column}#addressMap{height:48vh}}
+
+/* Embedded map picker layout */
+.address-map-card{display:flex;flex-direction:column;gap:9px}.address-map-search button{white-space:nowrap}.address-map-actions{margin:0;flex-direction:row!important;align-items:center!important}#addressMap{height:min(55vh,480px);min-height:300px;width:100%;border:1px solid #dce5df;border-radius:14px;overflow:hidden;z-index:1}.address-map-card>.notice{margin:0}.address-map-card>#mapConfirmLocation{min-height:48px}@media(max-width:560px){#addressMap{height:52vh;min-height:300px}.address-map-card{gap:10px}}
