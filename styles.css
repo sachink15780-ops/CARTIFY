@@ -124,3 +124,47 @@ footer .brand{color:#1b2940}
  .auth-card{padding:27px 22px;border-radius:20px}
  .page-section{margin:32px auto}
 }
+
+
+/* CARTIFY premium refresh — midnight navy, champagne gold and warm ivory */
+:root{
+ --ink:#17243a;--muted:#758096;--paper:#f5f3ee;--line:#e8e2d7;
+ --accent:#d8b46a;--green:#247b63;
+}
+body{background:#fbfaf7;color:#17243a}
+.topbar{background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid #e9e3d8;box-shadow:0 5px 24px rgba(23,36,58,.045)}
+.brand{letter-spacing:1.8px}.brand-mark{background:linear-gradient(145deg,#243550,#111c2e);color:#e6c987;box-shadow:0 5px 14px #17243a24}
+.nav-link{transition:color .2s}.nav-link:hover{color:#b18a43}
+.account-btn,.outline-btn{border-color:#e3dccf;background:#fffdf9}
+.hero{background:radial-gradient(circle at 82% 25%,#354866 0,#1b2a42 34%,#111c2e 76%);border:1px solid #34435a;border-radius:28px;box-shadow:0 22px 55px rgba(17,28,46,.16)}
+.hero .eyebrow{color:#e6c987}.hero h1 span,.auth-card h1 span{color:#e6c987}
+.hero p{color:#d1d7df}.hero-orb{background:linear-gradient(145deg,#f3dfb1,#c49b50 60%,#9d7434);box-shadow:0 18px 55px #0003}
+.hero-tag{background:#f8f1e2;color:#24334a;box-shadow:0 8px 22px #0002}
+.primary{background:linear-gradient(135deg,#ead39e,#c49b50);color:#1b2739;box-shadow:0 7px 18px rgba(196,155,80,.2);transition:transform .2s,box-shadow .2s}
+.primary:hover{filter:none;transform:translateY(-1px);box-shadow:0 10px 23px rgba(196,155,80,.3)}
+.eyebrow{color:#a98442}
+.section-head h2,.page-section h1,.auth-card h1{letter-spacing:-.7px}
+.category{background:#fffdf9;border-color:#e7e0d4;transition:all .18s}
+.category.active{background:#1b2a42;border-color:#1b2a42;color:#f1d99f;box-shadow:0 5px 14px #17243a1c}
+.search,label input,label select{background:#fffdf9;border-color:#e4ded3}
+.search:focus,label input:focus,label select:focus{border-color:#c5a15b;box-shadow:0 0 0 3px rgba(197,161,91,.12)}
+.product-card{border-color:#ebe5da;border-radius:17px;background:#fff;box-shadow:0 7px 22px rgba(28,39,56,.045);transition:transform .22s,box-shadow .22s}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(28,39,56,.11)}
+.product-image{background:linear-gradient(145deg,#f4f0e8,#ebe6dc)}
+.product-category{color:#a17b36;letter-spacing:1.3px}
+.add-btn{border-color:#23344e;color:#23344e;transition:all .18s}
+.add-btn:hover,.buy-btn{background:#1b2a42;color:#f3dba2}
+.buy-btn:hover{background:#2a3d5b}
+.auth-wrap{background:radial-gradient(circle at 15% 15%,#f1e9d8 0,transparent 35%),linear-gradient(135deg,#f8f6f0,#fff)}
+.auth-card{border-color:#ebe4d8;border-radius:22px;box-shadow:0 22px 60px rgba(27,42,66,.09)}
+.tab.active{border-bottom-color:#c5a15b;color:#1b2a42}
+.google-btn{border-color:#e5dfd4;background:#fffdf9}
+.page-section{background:transparent}
+.cart-summary,.checkout-total,.stat{background:#f5f1e8;border:1px solid #ebe3d5}
+.checkout-form,.admin-order{border-color:#e9e2d6;background:#fff}
+.admin-tabs{border-bottom-color:#e7e0d4}
+.admin-order{box-shadow:0 6px 18px rgba(28,39,56,.035)}
+.earnings-table th{background:#f5f1e8}
+footer{background:#f7f5ef;border-top-color:#e8e1d5}
+.toast{background:#1b2a42;border:1px solid #3c4b62;box-shadow:0 12px 30px #17243a30}
+@media(max-width:560px){.hero{border-radius:20px}.product-card{box-shadow:0 5px 16px rgba(28,39,56,.055)}}
