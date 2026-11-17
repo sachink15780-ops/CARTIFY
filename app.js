@@ -4,7 +4,7 @@ import { getFirestore, collection, addDoc, getDocs, query, where, doc, updateDoc
 import { firebaseConfig } from "./firebase-config.js";
 
 const ADMIN_EMAILS = ["sachink15780@gmail.com"];
-const SHEETS_WEB_APP_URL = "";
+const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyyVs2Xn8Byma2oT7ePYbID_QQ0I_pbkTCp5hc5ePvF6AExyTA2AbR6JIy1HLxk31AG/exec";
 const UPI_ID = "";
 const $ = s => document.querySelector(s);
 const money = n => "₹" + Number(n || 0).toLocaleString("en-IN");
