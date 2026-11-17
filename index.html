@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101827"><meta name="description" content="CARTIFY — Everyday shopping made simple.">
+  <title>CARTIFY — Shop Smart</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#" aria-label="CARTIFY home"><span class="brand-mark">C</span>CARTIFY</a><nav><button class="nav-link" data-view="shop">Shop</button><button class="nav-link" data-view="orders">My orders</button></nav><div class="top-actions"><button id="cartBtn" class="icon-btn" aria-label="Cart">Bag <b id="cartCount">0</b></button><button id="accountBtn" class="account-btn">Sign in</button></div></header>
+  <main>
+    <section id="authView" class="auth-wrap">
+      <div class="auth-card"><div class="eyebrow">WELCOME TO CARTIFY</div><h1>Shopping made <span>simple.</span></h1><p class="muted">Sign in or create your account to continue shopping.</p>
+        <div class="auth-tabs"><button class="tab active" data-auth="login">Login</button><button class="tab" data-auth="signup">Create account</button></div>
+        <form id="authForm"><label id="nameLabel" class="hidden">Full name<input id="authName" autocomplete="name" placeholder="Your name"></label><label>Email address<input id="authEmail" type="email" required autocomplete="email" placeholder="you@example.com"></label><label>Password<input id="authPassword" type="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters"></label><button class="primary full" type="submit" id="authSubmit">Login</button></form>
+        <div class="or"><span>OR</span></div><button id="googleBtn" class="google-btn">Continue with Google</button><p id="authMessage" class="notice" aria-live="polite">Account access requires Firebase setup. See README.</p>
+      </div>
+    </section>
+    <section id="shopView" class="hidden">
+      <section class="hero"><div><div class="eyebrow">THE CARTIFY EDIT</div><h1>Good finds.<br><span>Better prices.</span></h1><p>Discover everyday essentials, handpicked for you.</p><button class="primary" id="shopNow">Explore collection <span>→</span></button></div><div class="hero-art"><div class="hero-orb"></div><div class="hero-tag">NEW<br>ARRIVALS</div><div class="hero-box">C.</div></div></section>
+      <div class="section-head"><div><div class="eyebrow">SHOP YOUR WAY</div><h2>Browse categories</h2></div></div><div class="categories" id="categories"><button class="category active" data-category="All">All products</button><button class="category" data-category="Men">Men</button><button class="category" data-category="Women">Women</button><button class="category" data-category="Home">Home</button><button class="category" data-category="Accessories">Accessories</button><button class="category" data-category="Gadgets">Gadgets</button></div>
+      <div class="section-head product-head"><div><div class="eyebrow">FRESH PICKS</div><h2>Popular right now</h2></div><input id="searchInput" class="search" placeholder="Search products…" aria-label="Search products"></div><div id="productGrid" class="product-grid"></div>
+    </section>
+    <section id="ordersView" class="hidden page-section"><div class="eyebrow">YOUR ACCOUNT</div><h1>My orders</h1><div id="ordersList" class="orders-list"></div></section>
+    <section id="cartView" class="hidden page-section"><button class="back-link" data-view="shop">← Continue shopping</button><div class="eyebrow">YOUR BAG</div><h1>Shopping cart</h1><div id="cartItems"></div><div id="cartSummary" class="cart-summary"></div></section>
+    <section id="checkoutView" class="hidden page-section"><button class="back-link" data-view="cart">← Back to bag</button><div class="eyebrow">ALMOST YOURS</div><h1>Delivery details</h1><div class="checkout-layout"><form id="checkoutForm" class="checkout-form">
+      <h3>Contact information</h3><label>Full name<input name="name" required autocomplete="name"></label><div class="two-col"><label>Mobile number<input name="mobile" required inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit number"></label><label>Alternate number<input name="alternate" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="Optional"></label></div>
+      <h3>Delivery address</h3><div class="two-col"><label>PIN code<input id="pincode" name="pincode" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6"></label><label>State<input id="state" name="state" required></label></div><div class="two-col"><label>District<input id="district" name="district" required></label><label>Post office<input id="postOffice" name="postOffice"></label></div><div class="two-col"><label>City / Village<input name="city" required></label><label>House / Flat no.<input name="house" required></label></div><label>Street / Area<input name="area" required></label><label>Landmark<input name="landmark" placeholder="Optional"></label><label>Address type<select name="addressType"><option>Home</option><option>Work</option><option>Other</option></select></label>
+      <h3>Payment method</h3><label class="radio-line"><input type="radio" name="payment" value="COD" checked> Cash on Delivery</label><label class="radio-line"><input type="radio" name="payment" value="UPI"> UPI (manual confirmation)</label><button class="primary full" type="submit">Place order</button><p id="checkoutMessage" class="notice"></p></form><aside id="checkoutTotal" class="checkout-total"></aside></div></section>
+    <section id="adminView" class="hidden page-section"><div class="admin-heading"><div><div class="eyebrow">STORE MANAGEMENT</div><h1>Admin dashboard</h1></div><button id="adminLogout" class="outline-btn">Sign out</button></div><div id="adminStats" class="stats"></div><div class="admin-tabs"><button class="tab active" data-admin="orders">Orders</button><button class="tab" data-admin="products">Products</button></div><div id="adminContent"></div></section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-mark">C</span>CARTIFY</a><p>Everyday shopping, made easier.</p><small>© <span id="year"></span> CARTIFY. Prices and availability may change.</small></footer>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="app.js"></script>
+</body></html>
