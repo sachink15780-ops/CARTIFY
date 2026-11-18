@@ -320,3 +320,7 @@ body.gps-scanning{overflow:hidden!important}.full-gps-overlay{position:fixed;ins
  .gps-overlay-copy{top:40%!important;padding:15px!important}
  .gps-overlay-copy h2{font-size:25px!important}
 }
+
+/* CARTIFY FIX: keep Buy Now visible on product cards and detail pages */
+.product-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;align-items:stretch!important}
+.product-actions .buy-btn{display:block!important;visibility:visible!important;opacity:1!important;min-height:42px!important;width:100%!important;position:relative!important;z-index:1!important}
