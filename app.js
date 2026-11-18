@@ -4,7 +4,7 @@ import { getFirestore, collection, addDoc, getDocs, query, where, doc, updateDoc
 import { firebaseConfig } from "./firebase-config.js";
 
 const ADMIN_EMAILS = ["sachink15780@gmail.com"];
-const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwyUMbiBjh3MMnBu4s0Eduy4ZdbbC5K5KLZwTzxaMQDIqY6zQNmNjCHkz8QLfx9TKkG3A/exec";
+const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbycuxqh7Vpt_YTVCSO6vW88iWKII8tVp8TIExYCckcmVOX6tcWwBIHi3VJw3yu0M3sA/exec";
 const UPI_ID = "thakursachin@ptyes";
 const UPI_PAYEE_NAME = "CARTIFY";
 function makeUpiPaymentUrl(amount,orderId,packageName){const params=new URLSearchParams({pa:UPI_ID,pn:UPI_PAYEE_NAME,am:Number(amount).toFixed(2),cu:"INR",tn:"CARTIFY "+String(orderId||"Order").slice(0,40)});return "upi://pay?"+params.toString();}
