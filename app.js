@@ -49,7 +49,8 @@ function showUpiAppPicker(amount,orderId){
   const app=btn.dataset.qrApp;
   const paymentLink=makeUpiPaymentUrl(amount,orderId);
   document.getElementById("cartifyUpiAppHelp").textContent=app+" ke liye Android ka standard UPI payment chooser khol rahe hain. List mein apna installed UPI app select karein, phir naam aur amount check karke Pay karein.";
-  const a=document.createElement("a");a.href=paymentLink;a.style.display="none";document.body.appendChild(a);a.click();a.remove();
+  // Navigate directly during the real tap gesture; hidden-anchor clicks can be blocked on Android Chrome.
+  window.location.href=paymentLink;
  });
  modal.style.display="flex";
  document.getElementById("upiPickerCancel").onclick=()=>{modal.style.display="none";localStorage.removeItem("cartify_pending_upi");$("#checkoutMessage").textContent="";showView("checkoutView");showCartifyModal({title:"Payment cancelled",message:"Payment submit nahi hui aur order create nahi hua.",icon:"×",primaryText:"Back to checkout"});};
