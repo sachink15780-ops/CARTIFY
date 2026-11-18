@@ -7,7 +7,7 @@ const ADMIN_EMAILS = ["sachink15780@gmail.com"];
 const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwyUMbiBjh3MMnBu4s0Eduy4ZdbbC5K5KLZwTzxaMQDIqY6zQNmNjCHkz8QLfx9TKkG3A/exec";
 const UPI_ID = "thakursachin@ptyes";
 const UPI_PAYEE_NAME = "CARTIFY";
-function makeUpiPaymentUrl(amount,orderId,packageName){const params=new URLSearchParams({pa:UPI_ID,pn:UPI_PAYEE_NAME,am:Number(amount).toFixed(2),cu:"INR",tn:"CARTIFY "+String(orderId||"Order").slice(0,40),tr:String(orderId||"CARTIFY").slice(0,35)});return "upi://pay?"+params.toString();}
+function makeUpiPaymentUrl(amount,orderId,packageName){const params=new URLSearchParams({pa:UPI_ID,pn:UPI_PAYEE_NAME,am:Number(amount).toFixed(2),cu:"INR",tn:"CARTIFY "+String(orderId||"Order").slice(0,40)});return "upi://pay?"+params.toString();}
 const $ = s => document.querySelector(s);
 const money = n => "₹" + Number(n || 0).toLocaleString("en-IN");
 const sampleProducts = [
@@ -47,20 +47,9 @@ function showUpiAppPicker(amount,orderId){
  document.getElementById("cartifySaveQr").onclick=async()=>{try{const response=await fetch(qr.src);if(!response.ok)throw new Error("QR download failed");const blob=await response.blob();const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="CARTIFY-payment-QR.png";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);toast("QR image downloaded");}catch(e){window.open(qr.src,"_blank","noopener");toast("QR image khul gayi; image ko save kar lein.");}};
  modal.querySelectorAll("[data-qr-app]").forEach(btn=>btn.onclick=()=>{
   const app=btn.dataset.qrApp;
-  const params=new URLSearchParams({pa:UPI_ID,pn:UPI_PAYEE_NAME,am:Number(amount).toFixed(2),cu:"INR",tn:"CARTIFY "+String(orderId||"Order").slice(0,40),tr:String(orderId||"CARTIFY").slice(0,35)}).toString();
-  const targets={
-   "PhonePe":{url:"intent://pay?"+params+"#Intent;scheme=upi;package=com.phonepe.app;end",fallback:"phonepe://pay?"+params,store:"https://play.google.com/store/apps/details?id=com.phonepe.app"},
-   "Google Pay":{url:"intent://pay?"+params+"#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end",fallback:"tez://upi/pay?"+params,store:"https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user"},
-   "Paytm":{url:"intent://pay?"+params+"#Intent;scheme=upi;package=net.one97.paytm;end",fallback:"paytmmp://pay?"+params,store:"https://play.google.com/store/apps/details?id=net.one97.paytm"},
-   "Other UPI app":{url:"upi://pay?"+params,fallback:"",store:""}
-  };
-  const target=targets[app];
-  document.getElementById("cartifyUpiAppHelp").textContent=app+" mein CARTIFY ka payment request khol rahe hain. App mein naam aur amount check karke khud Pay karein. QR download ka option bhi available hai.";
-  if(target&&target.url){
-    const a=document.createElement("a");a.href=target.url;a.style.display="none";document.body.appendChild(a);a.click();a.remove();
-    if(target.fallback)setTimeout(()=>{if(!document.hidden){window.location.href=target.fallback;}},900);
-    if(target.store)setTimeout(()=>{if(!document.hidden){const store=document.createElement("a");store.href=target.store;store.target="_blank";store.rel="noopener";document.body.appendChild(store);store.click();store.remove();}},2200);
-  }
+  const paymentLink=makeUpiPaymentUrl(amount,orderId);
+  document.getElementById("cartifyUpiAppHelp").textContent=app+" ke liye Android ka standard UPI payment chooser khol rahe hain. List mein apna installed UPI app select karein, phir naam aur amount check karke Pay karein.";
+  const a=document.createElement("a");a.href=paymentLink;a.style.display="none";document.body.appendChild(a);a.click();a.remove();
  });
  modal.style.display="flex";
  document.getElementById("upiPickerCancel").onclick=()=>{modal.style.display="none";localStorage.removeItem("cartify_pending_upi");$("#checkoutMessage").textContent="";showView("checkoutView");showCartifyModal({title:"Payment cancelled",message:"Payment submit nahi hui aur order create nahi hua.",icon:"×",primaryText:"Back to checkout"});};
