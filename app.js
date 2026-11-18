@@ -47,15 +47,20 @@ function showUpiAppPicker(amount,orderId){
  document.getElementById("cartifySaveQr").onclick=async()=>{try{const response=await fetch(qr.src);if(!response.ok)throw new Error("QR download failed");const blob=await response.blob();const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="CARTIFY-payment-QR.png";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);toast("QR image downloaded");}catch(e){window.open(qr.src,"_blank","noopener");toast("QR image khul gayi; image ko save kar lein.");}};
  modal.querySelectorAll("[data-qr-app]").forEach(btn=>btn.onclick=()=>{
   const app=btn.dataset.qrApp;
+  const params=new URLSearchParams({pa:UPI_ID,pn:UPI_PAYEE_NAME,am:Number(amount).toFixed(2),cu:"INR",tn:"CARTIFY "+String(orderId||"Order").slice(0,40),tr:String(orderId||"CARTIFY").slice(0,35)}).toString();
   const targets={
-   "PhonePe":{url:"intent://#Intent;scheme=phonepe;package=com.phonepe.app;end",fallback:"https://play.google.com/store/apps/details?id=com.phonepe.app"},
-   "Google Pay":{url:"intent://#Intent;scheme=tez;package=com.google.android.apps.nbu.paisa.user;end",fallback:"https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user"},
-   "Paytm":{url:"intent://#Intent;scheme=paytmmp;package=net.one97.paytm;end",fallback:"https://play.google.com/store/apps/details?id=net.one97.paytm"},
-   "Other UPI app":{url:"upi://pay?"+new URLSearchParams({pa:UPI_ID,pn:UPI_PAYEE_NAME,am:Number(amount).toFixed(2),cu:"INR",tn:"CARTIFY "+String(orderId||"Order").slice(0,40),tr:String(orderId||"CARTIFY").slice(0,35)}).toString(),fallback:""}
+   "PhonePe":{url:"intent://pay?"+params+"#Intent;scheme=upi;package=com.phonepe.app;end",fallback:"phonepe://pay?"+params,store:"https://play.google.com/store/apps/details?id=com.phonepe.app"},
+   "Google Pay":{url:"intent://pay?"+params+"#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end",fallback:"tez://upi/pay?"+params,store:"https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user"},
+   "Paytm":{url:"intent://pay?"+params+"#Intent;scheme=upi;package=net.one97.paytm;end",fallback:"paytmmp://pay?"+params,store:"https://play.google.com/store/apps/details?id=net.one97.paytm"},
+   "Other UPI app":{url:"upi://pay?"+params,fallback:"",store:""}
   };
   const target=targets[app];
-  document.getElementById("cartifyUpiAppHelp").textContent=app+" kholne ki koshish ho rahi hai. App khulne ke baad Scan QR → Gallery/Upload se saved CARTIFY QR select karein. App ka Scan screen website force nahi kar sakti.";
-  if(target&&target.url){if(app==="Other UPI app"){window.location.href=target.url;}else{const a=document.createElement("a");a.href=target.url;a.style.display="none";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>{if(!document.hidden&&target.fallback)window.location.href=target.fallback;},1300);}}
+  document.getElementById("cartifyUpiAppHelp").textContent=app+" mein CARTIFY ka payment request khol rahe hain. App mein naam aur amount check karke khud Pay karein. QR download ka option bhi available hai.";
+  if(target&&target.url){
+    const a=document.createElement("a");a.href=target.url;a.style.display="none";document.body.appendChild(a);a.click();a.remove();
+    if(target.fallback)setTimeout(()=>{if(!document.hidden){window.location.href=target.fallback;}},900);
+    if(target.store)setTimeout(()=>{if(!document.hidden){const store=document.createElement("a");store.href=target.store;store.target="_blank";store.rel="noopener";document.body.appendChild(store);store.click();store.remove();}},2200);
+  }
  });
  modal.style.display="flex";
  document.getElementById("upiPickerCancel").onclick=()=>{modal.style.display="none";localStorage.removeItem("cartify_pending_upi");$("#checkoutMessage").textContent="";showView("checkoutView");showCartifyModal({title:"Payment cancelled",message:"Payment submit nahi hui aur order create nahi hua.",icon:"×",primaryText:"Back to checkout"});};
