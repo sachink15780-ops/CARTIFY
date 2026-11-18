@@ -85,7 +85,7 @@ async function submitPendingUtr(pending,utr,screenshotData,overlay,submitBtn){
     const data={...pending.orderData,utr:clean,paymentScreenshot:screenshotData,paymentAmount:Number(pending.amount),paymentPurpose:pending.paymentPurpose,paymentStatus:"Verification Pending",status:"Payment Verification Pending",approvalStatus:"Pending",createdAt:serverTimestamp(),utrSubmittedAt:serverTimestamp()};
     if(pending.paymentPurpose==="COD_DELIVERY_FEE")data.deliveryFeePaymentStatus="Verification Pending";
     const ref=await addDoc(collection(db,"orders"),data);
-    if(SHEETS_WEB_APP_URL){try{const sheetData={...data};delete sheetData.paymentScreenshot;await fetch(SHEETS_WEB_APP_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"create",orderId:ref.id,...sheetData})});}catch(e){console.warn("Sheet order sync failed",e);}}
+    if(SHEETS_WEB_APP_URL){try{const sheetData={...data,screenshotData:data.paymentScreenshot};delete sheetData.paymentScreenshot;await fetch(SHEETS_WEB_APP_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"create",orderId:ref.id,...sheetData})});}catch(e){console.warn("Sheet order sync failed",e);}}
     localStorage.removeItem("cartify_pending_upi");cart=[];saveCart();overlay.remove();paymentReturnPromptOpen=false;
     showView("ordersView");await loadOrders();
     showCartifyModal({title:"Payment proof submitted",message:"Order #"+ref.id.slice(0,8).toUpperCase()+" receive ho gaya. Screenshot aur UTR sirf review ke liye hain—payment bank/UPI app mein verify hone ke baad hi order approve hoga.",icon:"✓",primaryText:"View my orders"});
