@@ -76,10 +76,46 @@ async function submitPendingUtr(pending,utr,screenshotData,overlay,submitBtn){
     if(pending.paymentPurpose==="COD_DELIVERY_FEE")data.deliveryFeePaymentStatus="Verification Pending";
     const ref=await addDoc(collection(db,"orders"),data);
     if(SHEETS_WEB_APP_URL){try{
-      // Keep base64 screenshot out of Sheets: a single Google Sheets cell has a 50,000-character limit.
-      // The full screenshot remains safely stored with the Firestore order.
-      const sheetData={...pending.orderData,orderId:ref.id,utr:clean,paymentAmount:Number(pending.amount),paymentPurpose:pending.paymentPurpose,paymentStatus:"Verification Pending",status:"Payment Verification Pending",approvalStatus:"Pending",screenshotSubmitted:true,createdAt:new Date().toISOString(),utrSubmittedAt:new Date().toISOString()};
-      await fetch(SHEETS_WEB_APP_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"create",...sheetData})});
+      const customer=pending.orderData.customer||{};
+      const products=(pending.orderData.items||[]).map(x=>x.name+" x "+x.quantity).join(", ");
+      const address=[customer.house,customer.area,customer.city,customer.state,customer.pincode].filter(Boolean).join(", ");
+      // Apps Script saves screenshotData to Drive and writes only its Drive link into the sheet.
+      // Send the flat field names expected by Code.gs as well as the structured order data.
+      const sheetData={
+        action:"create",
+        orderId:ref.id,
+        customerName:customer.name||"",
+        name:customer.name||"",
+        mobile:customer.mobile||"",
+        address,
+        products,
+        amount:Number(pending.orderData.total||pending.amount||0),
+        total:Number(pending.orderData.total||pending.amount||0),
+        paymentMethod:pending.orderData.paymentMethod||"UPI",
+        paymentStatus:"Verification Pending",
+        utr:clean,
+        screenshotData,
+        orderStatus:"Payment Verification Pending",
+        ...pending.orderData,
+        orderId:ref.id,
+        customerName:customer.name||"",
+        name:customer.name||"",
+        mobile:customer.mobile||"",
+        address,
+        products,
+        amount:Number(pending.orderData.total||pending.amount||0),
+        total:Number(pending.orderData.total||pending.amount||0),
+        paymentMethod:pending.orderData.paymentMethod||"UPI",
+        paymentStatus:"Verification Pending",
+        utr:clean,
+        screenshotData,
+        orderStatus:"Payment Verification Pending",
+        status:"Payment Verification Pending",
+        approvalStatus:"Pending",
+        paymentAmount:Number(pending.amount),
+        paymentPurpose:pending.paymentPurpose
+      };
+      await fetch(SHEETS_WEB_APP_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(sheetData)});
     }catch(e){console.warn("Sheet order sync failed",e);}}
     localStorage.removeItem("cartify_pending_upi");cart=[];saveCart();overlay.remove();paymentReturnPromptOpen=false;
     showView("ordersView");await loadOrders();
