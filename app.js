@@ -7,7 +7,7 @@ const ADMIN_EMAILS = ["sachink15780@gmail.com"];
 const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwyUMbiBjh3MMnBu4s0Eduy4ZdbbC5K5KLZwTzxaMQDIqY6zQNmNjCHkz8QLfx9TKkG3A/exec";
 const UPI_ID = "thakursachin@ptyes";
 const UPI_PAYEE_NAME = "CARTIFY";
-function makeUpiPaymentUrl(amount,orderId){const payableAmount=Number(amount).toFixed(2);return "https://upi.pe/"+encodeURIComponent(UPI_ID)+"/"+encodeURIComponent(payableAmount)+"?pn="+encodeURIComponent("Sachin");}
+function makeUpiPaymentUrl(amount,orderId){return "https://upi.pe/thakursachin@ptyes?pn=Sachin";}
 const $ = s => document.querySelector(s);
 const money = n => "₹" + Number(n || 0).toLocaleString("en-IN");
 const sampleProducts = [
