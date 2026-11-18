@@ -18,9 +18,10 @@ const sampleProducts = [
 {id:"p105",name:"Classic Sunglasses",category:"Accessories",price:299,mrp:599,costPrice:0,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=700"},
 {id:"p106",name:"Wireless Earbuds",category:"Gadgets",price:899,mrp:1499,costPrice:0,image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=700"}
 ];
-let auth=null,db=null,currentUser=null,products=sampleProducts,categories=["Men","Women","Home","Accessories","Gadgets"],cart=JSON.parse(localStorage.getItem("cartify_cart")||"[]"),activeCategory="All",authMode="login",adminTab="pending";
+function loadSavedCart(){try{const saved=JSON.parse(localStorage.getItem("cartify_cart")||"[]");return Array.isArray(saved)?saved:[];}catch(e){console.warn("Invalid saved cart cleared",e);try{localStorage.removeItem("cartify_cart");}catch(_){}return [];}}
+let auth=null,db=null,currentUser=null,products=sampleProducts,categories=["Men","Women","Home","Accessories","Gadgets"],cart=loadSavedCart(),activeCategory="All",authMode="login",adminTab="pending";
 const configured=firebaseConfig && firebaseConfig.apiKey && !String(firebaseConfig.apiKey).includes("PASTE_");
-if(configured){const app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);}
+if(configured){try{const app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);}catch(initError){console.error("Firebase initialization failed",initError);$("#authMessage").textContent="Firebase connection error: "+(initError.message||"Please refresh and try again.");}}
 else{$("#authMessage").textContent="Setup required: add Firebase config as explained in README before customers can sign in.";}
 $("#year").textContent=new Date().getFullYear();
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(window.cartifyToastTimer);window.cartifyToastTimer=setTimeout(()=>t.classList.remove("show"),2200);}
@@ -83,7 +84,7 @@ async function submitProductReview(e,p){e.preventDefault();if(!currentUser||!db)
 
 
 $("#searchInput").oninput=renderProducts;$("#shopNow").onclick=()=>scrollToElement(document.querySelector(".product-head"));
-function saveCart(){localStorage.setItem("cartify_cart",JSON.stringify(cart));$("#cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0);}
+function saveCart(){try{localStorage.setItem("cartify_cart",JSON.stringify(cart));}catch(e){console.warn("Cart could not be saved locally",e);}$("#cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0);}
 function productFor(x){return products.find(p=>p.id===x.id)||sampleProducts.find(p=>p.id===x.id);}
 function addToCart(id){const x=cart.find(i=>i.id===id);if(x)x.qty++;else cart.push({id,qty:1});saveCart();toast("Added to your cart");}
 function buyNow(id){if(!currentUser){toast("Please sign in first");showView("authView");return;}cart=[{id,qty:1}];saveCart();renderCheckout();showView("checkoutView");}
