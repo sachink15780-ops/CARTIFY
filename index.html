@@ -7,6 +7,31 @@
   <title>CARTIFY — Shop Smart</title><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><link rel="stylesheet" href="styles.css?v=cartify-fullscreen-gps-v44">
 </head>
 <body>
+  <div id="cartifySplash" class="cartify-splash" role="status" aria-label="CARTIFY is loading">
+    <div class="splash-content">
+      <div class="splash-logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="54" height="54" fill="none"><path d="M13 23h38l-4 31H17l-4-31Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><path d="M23 25v-7a9 9 0 0 1 18 0v7" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M25 37c4 4 10 4 14 0" stroke="#d7ad68" stroke-width="3.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="splash-wordmark">CARTIFY</div>
+      <div class="splash-tagline">SHOP SMART. SHOP EASY.</div>
+      <div class="splash-loader"><i></i></div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const splash = document.getElementById("cartifySplash");
+      if (!splash) return;
+      let hidden = false;
+      const hide = () => {
+        if (hidden) return;
+        hidden = true;
+        splash.classList.add("splash-hide");
+        setTimeout(() => splash.remove(), 650);
+      };
+      window.addEventListener("load", () => setTimeout(hide, 1450), { once: true });
+      setTimeout(hide, 4500);
+    })();
+  </script>
   <header class="topbar"><a class="brand" href="#" aria-label="CARTIFY home"><span class="brand-mark">C</span>CARTIFY</a><nav><button class="nav-link" data-view="shop">Shop</button><button class="nav-link" data-view="orders">My orders</button><button class="nav-link" id="adminShortcut" class="hidden">Admin Dashboard</button></nav><div class="top-actions"><button id="cartBtn" class="icon-btn" aria-label="Cart">Bag <b id="cartCount">0</b></button><details class="account-wrap" id="accountDetails"><summary id="accountBtn" class="account-btn">Sign in</summary><div id="accountMenu" class="account-menu"><div class="account-menu-user"><strong id="menuUserName">Your account</strong><small id="menuUserEmail"></small></div><button type="button" id="adminMenuBtn" class="hidden">Admin dashboard</button><button type="button" data-menu="profile">My profile</button><button type="button" data-menu="orders">My orders</button><button type="button" data-menu="shop">Continue shopping</button><button type="button" data-menu="refer">Refer &amp; share CARTIFY</button><a href="mailto:support@cartify.in?subject=CARTIFY%20Support">Help &amp; support</a><button type="button" class="logout-menu" id="logoutBtn">Log out</button></div></details></div></header>
   <main>
     <section id="authView" class="auth-wrap">
