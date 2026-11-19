@@ -324,3 +324,17 @@ body.gps-scanning{overflow:hidden!important}.full-gps-overlay{position:fixed;ins
 /* CARTIFY FIX: keep Buy Now visible on product cards and detail pages */
 .product-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;align-items:stretch!important}
 .product-actions .buy-btn{display:block!important;visibility:visible!important;opacity:1!important;min-height:42px!important;width:100%!important;position:relative!important;z-index:1!important}
+
+
+/* CARTIFY opening splash screen */
+.cartify-splash{position:fixed;inset:0;z-index:20000;display:grid;place-items:center;background:radial-gradient(circle at 50% 42%,#293953 0,#172238 48%,#101827 100%);color:#fff;opacity:1;visibility:visible;transition:opacity .55s ease,visibility .55s ease}
+.splash-content{display:flex;flex-direction:column;align-items:center;gap:13px;animation:splash-rise .75s cubic-bezier(.2,.8,.2,1) both}
+.splash-logo{width:94px;height:94px;display:grid;place-items:center;border:1px solid #d7ad6866;border-radius:27px;background:linear-gradient(145deg,#ffffff16,#ffffff05);color:#f4e5c8;box-shadow:0 18px 55px #0005, inset 0 1px #ffffff20}
+.splash-wordmark{font:800 31px Manrope,'DM Sans',sans-serif;letter-spacing:5px;margin-left:5px}
+.splash-tagline{font:700 10px 'DM Sans',sans-serif;letter-spacing:3px;color:#d7ad68}
+.splash-loader{width:112px;height:3px;margin-top:20px;background:#ffffff25;border-radius:10px;overflow:hidden}
+.splash-loader i{display:block;width:42%;height:100%;background:#d7ad68;border-radius:10px;animation:splash-loading 1.15s ease-in-out infinite}
+.cartify-splash.splash-hide{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes splash-rise{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes splash-loading{0%{transform:translateX(-120%)}100%{transform:translateX(270%)}}
+@media(prefers-reduced-motion:reduce){.splash-content,.splash-loader i{animation:none}.cartify-splash{transition:none}}
